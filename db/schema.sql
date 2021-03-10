@@ -11,7 +11,7 @@ USE burgers_db;
 CREATE TABLE burger (
     id int AUTO_INCREMENT NOT NULL,
     burger_name VARCHAR(30) NOT NULL,
-    devoured BOOLEAN,  
+    devoured BOOLEAN DEFAULT true,  
     PRIMARY KEY (id)
 );
 
