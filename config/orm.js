@@ -7,6 +7,7 @@ const printQuestionMarks = (num) => {
     for(let i=0; i< num; i++) {
         arr. push('?');
     }
+    //?,?
     return arr.toString();
 };
 
@@ -41,7 +42,7 @@ const orm = {
             cb(result);
         });
     },
-    insertOne(cols, vals, cb) {
+    insertOne(table,cols, vals, cb) {
         let queryString = `INSERT INTO ${table}`;
 
        queryString += ' (';
@@ -63,9 +64,9 @@ const orm = {
     updateOne(table, objColVals, condition, cb) {
         let queryString = `UPDATE ${table}`;
 
-        queryString += 'SET';
-        queryString += objToSql(objToSql);
-        queryString += 'WHERE';
+        queryString += ' SET ';
+        queryString += objToSql(objColVals);
+        queryString += ' WHERE ';
         queryString += condition;
 
         console.log(queryString);

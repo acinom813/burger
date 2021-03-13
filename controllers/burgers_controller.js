@@ -17,26 +17,24 @@ router.get('/', (req, res) => {
     });
 });
 router.post('/api/burger', (req, res) => {
-    burger.create(['name', 'devoured'], [req.body.name, req.body.devoured], (result) => {
+    burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, false], (result) => {
         //send back id
-        res.json({id: result.insertId});
+        res.redirect("/")
     });
 });
 router.put('/api/burger/:id', (req, res) => {
     const condition = `id = ${req.params.id}`;
+
     console.log('condition', condition);
 
-    burger.update( 
+    burger.updateOne( 
         {
             devoured: req.body.devoured,
         },
         condition,
         (result) => {
-            if (result.changeRows === 0) {
-                //If no rows changed, then ID doesn't exist
-                return res.status(404).end;
-            }
-            res.status(200).end();
+             
+            res.json(result)
         }); 
      });
 
