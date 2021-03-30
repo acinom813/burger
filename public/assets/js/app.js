@@ -11,7 +11,7 @@ for (let i = 0; i < changeDevourBtn.length; i++) {
          }
          console.log(data, id)
          fetch('/api/burger/'+id, {
-            method: 'PUT', // or 'PUT'
+            method: 'PUT', 
             headers: {
               'Content-Type': 'application/json',
             },
